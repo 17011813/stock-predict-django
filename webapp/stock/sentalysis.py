@@ -8,12 +8,16 @@ import scipy as sp
 import pandas as pd
 import numpy as np
 
-from konlpy.tag import Kkma        ; kkma = Kkma()
-from konlpy.tag import Hannanum    ; hannanum = Hannanum()
-from konlpy.tag import Okt         ; t = Okt()     # 구 트위터
+from konlpy.tag import Kkma
+from konlpy.tag import Hannanum
+from konlpy.tag import Okt
 from konlpy.tag import *
 import pickle
 
+kkma = Kkma()
+hannanum = Hannanum()
+t = Okt()     # 구 트위터
+ 
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer 
 from sklearn.linear_model import LogisticRegression
