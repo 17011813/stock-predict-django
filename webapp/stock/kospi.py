@@ -1,5 +1,5 @@
 #######################################################################################################################################
-#############################################            뉴스 감성지수 분류 모델            #############################################
+#############################################           뉴스 감성지수 크롤링 모델           #############################################
 #######################################################################################################################################
 
 
@@ -94,7 +94,7 @@ result_list = []
 error_cnt = 0
 
 def naver_news_title(dates):
-    base_url = 'https://news.naver.com/main/ranking/popularDay.nhn?rankingType=popular_day&sectionId=101&date={}'
+    base_url = 'https://finance.naver.com/news/mainnews.naver?date={}'
     headers = {
         'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36'
     }
@@ -104,10 +104,10 @@ def naver_news_title(dates):
         res = requests.get(url, headers=headers)
         if res.status_code == 200:
             soup = BeautifulSoup(res.text)
-            title_list = soup.select('ol.ranking_list li')
+            title_list = soup.select('div.mainNewsList .newsList')
             for title in title_list:
                 try:
-                    news_title = title.select_one('div.ranking_headline').text.strip()
+                    news_title = title.select_one('.articleSubject').text.strip()
                     result_list.append([news_title])
                 except:
                     error_cnt += 1
