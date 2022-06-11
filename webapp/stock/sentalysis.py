@@ -106,7 +106,7 @@ def data_preprocessing():
     from sklearn.model_selection import train_test_split
     
     # 데이터의 80%는 학습셋, 20%는 테스트셋
-    title_train, title_test, price_train, price_test = train_test_split(title_list, price_list, test_size=0.2, random_state=0)
+    title_train, title_test, price_train, price_test = train_test_split(title_list, price_list, test_size=0.3, random_state=42)
     
     return title_train, title_test, price_train, price_test
 
