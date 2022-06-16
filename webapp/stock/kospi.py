@@ -7,7 +7,7 @@
 from pykrx import stock
 import pandas as pd
 
-kospi200_data = stock.get_index_ohlcv("20200101", "20220614", "1028") # 1년반 KOSPI200 데이터
+kospi200_data = stock.get_index_ohlcv("20200101", "20220614", "1028") # 2년반 KOSPI200 데이터
 kospi200_data = kospi200_data.dropna()
 
 kospi200_data['가격변동'] = 0
